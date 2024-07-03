@@ -19,6 +19,20 @@
         .nav-link {
             color: darkslategray !important;
         }
+        .text-white{
+            color:whitesmoke
+        }
+        .text-burl{
+            color:burlywood
+        }
+        h3{
+            text-align: center;
+            font-weight: bold;
+        }
+        h4{
+            text-align: center;
+            font-family:'Times New Roman', Times, serif
+        }
     </style>
 </head>
 <body>
@@ -26,12 +40,36 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="#">My Book Recommender</a>
             <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="#">Home</a>
-                <a class="nav-link" href="#">Recommend</a>
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/recommend">Recommend</a>
                 <a class="nav-link" href="#">Contact</a>
             </div>
         </div>
     </nav>
+
+    <div class = "container">
+
+        <div class = "row">
+            <div class="col-md-12" style="margin-top:5%;">
+                <h1 class = "text-white" style = "font-size:xx-large; ">Top 50 books</h1>
+            </div>
+
+            {% for i in range(book_name|length) %}
+                <div class = "col-md-3" style="margin-top:8%;">
+                    <div class="card">
+                        <div class="card-body">
+                            <img class = "card-img-top" src="{{ image[i] }}">
+                            <h3 class = "text-burl">{{ book_name[i] }}</h3>
+                            <h4 class = "text-burl">{{ author[i] }}</h4>
+                            <h4 class = "text-burl">Votes- {{ votes[i] }}</h4>
+                            <h4 class = "text-burl">Rating- {{ rating[i] }}</h4>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+    </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
